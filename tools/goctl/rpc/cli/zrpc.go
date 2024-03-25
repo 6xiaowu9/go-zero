@@ -36,9 +36,6 @@ func ZRPC(_ *cobra.Command, args []string) error {
 	remote := VarStringRemote
 	branch := VarStringBranch
 	verbose := VarBoolVerbose
-	if len(grpcOutList) == 0 {
-		return errInvalidGrpcOutput
-	}
 	if len(goOutList) == 0 {
 		return errInvalidGoOutput
 	}

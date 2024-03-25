@@ -93,7 +93,7 @@ func mkdir(ctx *ctx.ProjectContext, proto parser.Proto, conf *conf.Config, c *ZR
 	if !c.Multiple {
 		callDir := filepath.Join(ctx.WorkDir,
 			strings.ToLower(stringx.From(proto.Service[0].Name).ToCamel()))
-		if strings.EqualFold(proto.Service[0].Name, stringx.From(filepath.Base(proto.GoPackage)).ToCamel()) {
+		if strings.EqualFold(proto.Service[0].Name, stringx.From(filepath.Base(strings.Split(proto.GoPackage, ";")[0])).ToCamel()) {
 			var err error
 			clientDir, err = format.FileNamingFormat(conf.NamingFormat, proto.Service[0].Name+"_client")
 			if err != nil {

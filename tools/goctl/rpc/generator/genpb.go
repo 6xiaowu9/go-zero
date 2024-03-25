@@ -53,6 +53,7 @@ func (g *Generator) setPbDir(ctx DirContext, c *ZRpcContext) error {
 		return fmt.Errorf("the output of pb.go and _grpc.pb.go must not be the same "+
 			"with --zrpc_out:\npb output: %s\nzrpc out: %s", pbDir, c.Output)
 	}
+
 	ctx.SetPbDir(pbDir, grpcDir)
 	return nil
 }

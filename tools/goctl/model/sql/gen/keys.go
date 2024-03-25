@@ -63,11 +63,11 @@ func genCacheKey(db, table stringx.String, in []*parser.Field) Key {
 	dbName, tableName := util.SafeString(db.Source()), util.SafeString(table.Source())
 	if len(dbName) > 0 {
 		varLeftJoin = append(varLeftJoin, "cache", dbName, tableName)
-		varRightJoin = append(varRightJoin, "cache", dbName, tableName)
+		varRightJoin = append(varRightJoin, "{cache", dbName, tableName+"}")
 		keyLeftJoin = append(keyLeftJoin, dbName, tableName)
 	} else {
 		varLeftJoin = append(varLeftJoin, "cache", tableName)
-		varRightJoin = append(varRightJoin, "cache", tableName)
+		varRightJoin = append(varRightJoin, "{cache", tableName+"}")
 		keyLeftJoin = append(keyLeftJoin, tableName)
 	}
 
